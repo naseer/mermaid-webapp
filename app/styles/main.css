@@ -9,6 +9,7 @@ body {
 text.actor {
   fill: black;
   stroke: none;
+  font-size:12px;
 }
 .actor-line {
   stroke: grey;
@@ -30,7 +31,7 @@ text.actor {
 .messageText {
   fill: black;
   stroke: none;
-  font-size: 10px;
+  font-size:12px;
 }
 .labelBox {
   stroke: #CCCCFF;

@@ -11,7 +11,6 @@ angular.module('angularMermaidApp')
   .controller('MainCtrl', ['$scope', '$sce', function($scope, $sce) {
     $scope.checkUpdate = function() {
       setTimeout(function() {
-        console.log('scope updated:' + $scope.mermaidsyntax);
         var mermaidholder = document.getElementById('mermaidholder');
         //Delete the exisiting child nodes
         while (mermaidholder.firstChild) {
@@ -25,7 +24,7 @@ angular.module('angularMermaidApp')
         mermaidholder.appendChild(mermaidnode);
 
         mermaid.init(); // jshint ignore:line
-      }, 2000);
+      }, 1000);
     };
 
     $scope.mermaidsyntax = 'sequenceDiagram\n' +
@@ -34,6 +33,7 @@ angular.module('angularMermaidApp')
       'Note right of C: Thinking...\n' +
       'C->> B: Response\n' +
       'B->> A: Forward response\n';
+    document.getElementsByClassName('materialize-textarea')[0].focus();
     $scope.checkUpdate();
 
   }]);
