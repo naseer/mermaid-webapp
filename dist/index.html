@@ -1,6 +1,6 @@
 <!doctype html> <html class="no-js"> <head> <meta charset="utf-8"> <title></title> <meta name="description" content=""> <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel="stylesheet" href="styles/vendor.e413a095.css"> <link rel="stylesheet" href="styles/main.df3a120e.css">  <body ng-app="angularMermaidApp" ng-controller="MainCtrl"> <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]--> <!-- Add your site or application content here--> <div class="row"> <form class="col s2"> <div class="input-field col s12"> <textarea class="materialize-textarea" rows="12" required ng-model="mermaidsyntax" ng-change="checkUpdate()"></textarea> <label>Enter mermaid diagram syntax</label> </div> <div> This webapp uses the <a href="http://knsv.github.io/mermaid/index.html">mermaid</a> library to generate graphs and sequence diagrams Syntax for sequence diagrams can be found <a href="http://knsv.github.io/mermaid/sequenceDiagram.html">here</a> <!--
+    <![endif]--> <!-- Add your site or application content here--> <div class="row"> <form class="col s2 m12"> <div class="input-field col s12"> <textarea class="materialize-textarea" rows="12" required ng-model="mermaidsyntax" ng-change="checkUpdate()"></textarea> <label>Enter mermaid diagram syntax</label> </div> <div> This webapp uses the <a href="http://knsv.github.io/mermaid/index.html">mermaid</a> library to generate graphs and sequence diagrams Syntax for sequence diagrams can be found <a href="http://knsv.github.io/mermaid/sequenceDiagram.html">here</a> <!--
         <br/> Sample sequence syntax:
         <br/>
         <div class="mmcode">
@@ -12,7 +12,7 @@
           <br/> B->>A:Forward response
           <br/>
         </div>
-        --> </div> </form> <div class="col s10"> <div class="card"> <div class="card-content"> <span class="card-title grey-text">Generated diagram</span> <span id="mermaidholder"></span> </div> </div> </div> </div> <!-- Google Analytics: change UA-XXXXX-X to be your site's ID --> <script>(function(i, s, o, g, r, a, m) {
+        --> </div> </form> <div class="col s10 m12"> <div class="card"> <div class="card-content"> <span class="card-title grey-text">Generated diagram</span> <span id="mermaidholder"></span> </div> </div> </div> </div> <!-- Google Analytics: change UA-XXXXX-X to be your site's ID --> <script>(function(i, s, o, g, r, a, m) {
       i['GoogleAnalyticsObject'] = r;
       i[r] = i[r] || function() {
         (i[r].q = i[r].q || []).push(arguments)
