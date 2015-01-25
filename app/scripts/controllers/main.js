@@ -8,8 +8,11 @@
  * Controller of the angularMermaidApp
  */
 angular.module('angularMermaidApp')
-  .controller('MainCtrl', ['$scope', '$sce', function($scope, $sce) {
+  .controller('MainCtrl', ['$scope', '$sce', '$location', function($scope, $sce, $location) {
+    $scope.absurl = '';
+    $scope.diaglink='';
     $scope.checkUpdate = function() {
+      $scope.diaglink=$scope.absurl+'##'+encodeURIComponent($scope.mermaidsyntax);
       setTimeout(function() {
         var mermaidholder = document.getElementById('mermaidholder');
         //Delete the exisiting child nodes
@@ -22,17 +25,31 @@ angular.module('angularMermaidApp')
         mermaidnode.className = 'mermaid';
         mermaidnode.appendChild(document.createTextNode($sce.trustAsHtml($scope.mermaidsyntax)));
         mermaidholder.appendChild(mermaidnode);
-
+        console.log($scope.diaglink);
         mermaid.init(); // jshint ignore:line
       }, 1000);
     };
 
-    $scope.mermaidsyntax = 'sequenceDiagram\n' +
-      'A->> B: Query\n' +
-      'B->> C: Forward query\n' +
-      'Note right of C: Thinking...\n' +
-      'C->> B: Response\n' +
-      'B->> A: Forward response\n';
+    if ($location.hash()) {
+      $scope.mermaidsyntax = $location.hash();
+      console.log($location.hash());
+      //Delete the other elements and leave only the diagram
+      $scope.showform = false;
+      $scope.diagclass = 'col s12 m12 l12';
+      $scope.cardclass='';
+
+    } else {
+      $scope.absurl = $location.absUrl();
+      $scope.showform = true;
+      $scope.diagclass = 'col s12 m12 l9';
+      $scope.cardclass='card';
+      $scope.mermaidsyntax = 'sequenceDiagram\n' +
+        'A->> B: Query\n' +
+        'B->> C: Forward query\n' +
+        'Note right of C: Thinking...\n' +
+        'C->> B: Response\n' +
+        'B->> A: Forward response\n';
+    }
     document.getElementsByClassName('materialize-textarea')[0].focus();
     $scope.checkUpdate();
 
