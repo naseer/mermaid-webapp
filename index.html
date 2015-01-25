@@ -1,6 +1,6 @@
 <!doctype html> <html class="no-js"> <head> <meta charset="utf-8"> <title></title> <meta name="description" content=""> <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel="stylesheet" href="styles/vendor.e413a095.css"> <link rel="stylesheet" href="styles/main.625ea549.css">  <body ng-app="angularMermaidApp" ng-controller="MainCtrl"> <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]--> <!-- Add your site or application content here--> <div class="row"> <form class="col s12 m12 l3"> <div class="input-field col s12"> <textarea class="materialize-textarea" style="font-size:12px; font-family:'Consolas','Menlo',fixed-width; height:150px" required ng-model="mermaidsyntax" ng-change="checkUpdate()"></textarea> <label>Enter mermaid diagram syntax</label> </div> <div> This webapp uses the <a href="http://knsv.github.io/mermaid/index.html">mermaid</a> library to generate graphs and sequence diagrams.<br> Syntax for sequence diagrams can be found <a href="http://knsv.github.io/mermaid/sequenceDiagram.html">here</a> <!--
+    <![endif]--> <!-- Add your site or application content here--> <div class="row"> <span id="fluff" ng-show="showform"> <form class="col s12 m12 l3"> <div class="input-field col s12"> <textarea class="materialize-textarea" style="font-size:12px; font-family:'Consolas','Menlo',fixed-width; height:150px" required ng-model="mermaidsyntax" ng-change="checkUpdate()"></textarea> <label>Enter mermaid diagram syntax here</label> </div> <div> This webapp uses the <a href="http://knsv.github.io/mermaid/index.html">mermaid</a> library to generate graphs and sequence diagrams.<br> Syntax for sequence diagrams can be found <a href="http://knsv.github.io/mermaid/sequenceDiagram.html">here</a> <!--
         <br/> Sample sequence syntax:
         <br/>
         <div class="mmcode">
@@ -12,7 +12,7 @@
           <br/> B->>A:Forward response
           <br/>
         </div>
-        --> </div> </form> <div class="col s12 m12 l9"> <div class="card"> <div class="card-content"> <span class="card-title grey-text">Generated diagram</span> <span id="mermaidholder"></span> </div> </div> </div> </div> <!-- Google Analytics: change UA-XXXXX-X to be your site's ID --> <script>(function(i, s, o, g, r, a, m) {
+        --> </div> </form> </span> <div ng-class="diagclass"> <div ng-class="cardclass"> <div class="card-content"> <span class="card-title grey-text" ng-show="showform">Generated diagram</span> <span id="mermaidholder"></span> <span ng-show="showform"><a ng-href="{{diaglink}}">PERMALINK</a> </span> </div> </div> </div> </div> <!-- Google Analytics: change UA-XXXXX-X to be your site's ID --> <script>(function(i, s, o, g, r, a, m) {
       i['GoogleAnalyticsObject'] = r;
       i[r] = i[r] || function() {
         (i[r].q = i[r].q || []).push(arguments)
@@ -27,4 +27,4 @@
     ga('create', 'UA-17923475-1');
     ga('send', 'pageview');</script> <!--[if lt IE 9]>
   <script src="scripts/oldieshim.a466b7b1.js"></script>
-  <![endif]--> <script src="scripts/vendor.562b0cce.js"></script> <script src="scripts/scripts.533d4840.js"></script>  
+  <![endif]--> <script src="scripts/vendor.562b0cce.js"></script> <script src="scripts/scripts.34f7cb4a.js"></script>  
